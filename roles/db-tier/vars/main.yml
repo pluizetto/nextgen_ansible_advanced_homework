@@ -3,3 +3,8 @@ postgresql_databases:
 postgresql_users:
   - name: paulo
     password: supersecure
+payload:
+  - postgresql
+  - postgresql-server
+  - postgresql-contrib
+  - postgresql-libs
