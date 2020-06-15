@@ -19,18 +19,29 @@
       debug: "{{ openstack_info.openstack_servers | length }}"
       register: osp_instance
     
-    - name: Curl website and register the content 
+    - name: Check that a page returns a status 200 and fail if the word AWESOME is not in the page contents
       uri:
         url: "http://{{ item.public_v4 }}"
-        status_code: 200
         return_content: yes
+      register: this
       when: 'item.name == "frontend"'
-      loop: "{{ openstack_info.openstack_servers }}"
-      register: qa_webpage
+      with_items: "{{ openstack_info.openstack_servers }}"
+      failed_when: "'Ansible has done' not in this.content"
       tags:
         - osp.smoke
-      ignore_errors: yes
+ 
+    #- name: Curl website and register the content 
+    #  uri:
+    #    url: "http://{{ item.public_v4 }}"
+    #    status_code: 200
+    #    return_content: yes
+    #  when: 'item.name == "frontend"'
+    #  loop: "{{ openstack_info.openstack_servers }}"
+    #  register: qa_webpage
+    #  tags:
+    #    - osp.smoke
+    #  ignore_errors: yes
 
-    - name: 'Check the content and fail if "Ansible has done its job" not present' 
-      fail:
-      when: "'Ansible has done its job' not in qa_webpage.content" 
+    #- name: 'Check the content and fail if "Ansible has done its job" not present' 
+    #  fail:
+    #  when: "'Ansible has done its job' not in qa_webpage.content" 
