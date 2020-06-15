@@ -1,4 +1,11 @@
 - name: Create Homework Assignment project
+  tower_project:
+    name: "{{ proj_name }}"
+    description: "Homework Assignment project"
+    organization: "{{ org_name }}" 
+    state: present
+    scm_type: "{{ scm_type }}" 
+    scm_url: "{{ scm_url }}"
 
 
 - name: Machine Credentail to connect to workstation using openstack.pub

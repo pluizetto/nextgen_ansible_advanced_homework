@@ -3,6 +3,7 @@
 org_name: Default 
 scm_branch: master 
 scm_url: "{{ github_repo }}"
+scm_type: git
 proj_name: "00_Homework Assignment"
 user_name: admin 
 password: r3dh4t1!
@@ -14,6 +15,7 @@ instance_group_name: osp
 workflow_template_name: cicd_workflow
 job_template_name_osp_instances: "02_Provision QA Env"
 osp_instances_playbook: site-osp-instances.yml
+#osp_instances_playbook: '/root/nextgen_ansible_advanced_homework/site-osp-instances.yml' 
 group_name: workstation
 host_name: workstation-{{osp_GUID}}.{{osp_DOMAIN}}
 job_template_name_3tier_app: "04_3tier app deployment on QA Env"

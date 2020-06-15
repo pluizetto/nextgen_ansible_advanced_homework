@@ -1,1 +1,2 @@
+# {{ ansible_managed }}
 tower_guid: "{{tower_GUID}}"

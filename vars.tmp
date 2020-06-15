@@ -1,0 +1,5 @@
+job_template_name_osp_instances
+static_inventory_name
+proj_name
+osp_instances_playbook
+ssh_cred_name
