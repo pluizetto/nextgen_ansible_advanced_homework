@@ -33,4 +33,4 @@
 
     - name: 'Check the content and fail if "Ansible has done its job" not present' 
       fail:
-      when: "'Ansible has done its job' not in webpage.results[0].content" 
+      when: "'Ansible has done its job' not in qa_webpage.content" 
