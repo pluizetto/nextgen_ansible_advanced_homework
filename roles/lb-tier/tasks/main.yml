@@ -1,3 +1,13 @@
 ---
+- name: "Enable {{ payload }}.service to start at boot time"
+  service:
+    name: "{{ payload }}.service"
+    enabled: yes
 
-
+- name: Configure haproxy to load balance over app servers
+  template:
+    src: templates/haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+  notify: "restart {{ payload }}.service to apply the changes"
+...
