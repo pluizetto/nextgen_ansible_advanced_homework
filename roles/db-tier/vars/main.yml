@@ -1,5 +1,8 @@
 postgresql_databases:
   - name: ansible_adv_db
+postgresql_user:
+  - name: paulo.luizetto
+    password: supersecure
 postgresql_users:
   - name: paulo.luizetto
     password: supersecure
@@ -8,3 +11,4 @@ payload:
   - postgresql-server
   - postgresql-contrib
   - postgresql-libs
+
