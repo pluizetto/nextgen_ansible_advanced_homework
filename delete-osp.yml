@@ -1,0 +1,4 @@
+- hosts: workstation-5a44.green.osp.opentlc.com 
+  become: yes
+  roles:
+    - osp-instance-delete

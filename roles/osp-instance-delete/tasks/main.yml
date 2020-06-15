@@ -8,7 +8,6 @@
 - name: Delete instances because smoke test failed
   os_server:
     cloud: openstack
-    name: "{{ item.value.name }}" 
+    name: "{{ item.name }}" 
     state: absent
   with_items: "{{ result.openstack_servers }}"
-   
