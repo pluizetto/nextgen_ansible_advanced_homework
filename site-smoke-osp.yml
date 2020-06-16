@@ -1,3 +1,4 @@
+---
 - name: Run a smoke test on the QA environment for the three-tier application 
   hosts: workstation
   gather_facts: false
