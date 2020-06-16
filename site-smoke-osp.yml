@@ -19,7 +19,7 @@
       debug: "{{ openstack_info.openstack_servers | length }}"
       register: osp_instance
     
-    - name: 'Check page and fail if the words "Ansible has done" is not in the page contents'
+    - name: 'Check page and fail if the words "Ansible has done" are not in the page contents'
       uri:
         url: "http://{{ item.public_v4 }}"
         return_content: yes
